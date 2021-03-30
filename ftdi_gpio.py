@@ -30,6 +30,7 @@ while True:
 	time.sleep(0.1)
 	sp.cbus_write(8)
 	time.sleep(0.1)
+	break
 
 # Print the current value of all setup pins
 print("CBUS: %s" % sp.cbus_read())
