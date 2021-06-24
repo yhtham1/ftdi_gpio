@@ -10,6 +10,7 @@ import time
 def main():
 	# serial_number = "DJ5LV1RQ"
 	serial_number = "DJ61E92G"
+	serial_number = "DN6KHMZE"
 	sp = []
 	try:
 		sp = ft232.Ft232(serial_number, baudrate=115200)
