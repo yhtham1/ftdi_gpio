@@ -10,7 +10,8 @@ import time
 def main():
 	# serial_number = "DJ5LV1RQ"
 	serial_number = "DJ61E92G"
-	serial_number = "DN6KHMZE"
+	serial_number = "DN0556IZ"  # IF314_USBIF
+	serial_number = "DN6KHMZE"  # IF314_USBIF
 	sp = []
 	try:
 		sp = ft232.Ft232(serial_number, baudrate=115200)
@@ -25,10 +26,18 @@ def main():
 	# If you want to use the CBUS pins, you enable them with cbus_setup
 	# 'mask' is a bitmask which specifies which pins to enable
 	# 'init' is a bitmask for the initial value for each pin
-	sp.cbus_setup(mask=14, init=0)
+	sp.cbus_setup(mask=15, init=0)
 
 	# Change the current value of all setup pins
-	sp.cbus_write(7)
+	for i in range(1000):
+		sp.cbus_write(1)
+		time.sleep(0.1)
+		sp.cbus_write(2)
+		time.sleep(0.1)
+		sp.cbus_write(4)
+		time.sleep(0.1)
+		sp.cbus_write(8)
+		time.sleep(0.1)
 	return
 	# while True:
 	# 	sp.cbus_write(1)
